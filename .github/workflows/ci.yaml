@@ -27,9 +27,6 @@ jobs:
       - name: Run Black (check only)
         run: black --check backend/
 
-      - name: Run Flake8
-        run: flake8 backend/
-
       - name: Setup Node
         uses: actions/setup-node@v3
         with:

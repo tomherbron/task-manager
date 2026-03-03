@@ -73,7 +73,9 @@ def create_task(payload: TaskCreate, db: Session = Depends(get_db)):
 @app.get("/tasks/search", response_model=list[TaskOut])
 def search_tasks(q: str = Query(""), db: Session = Depends(get_db)):
     sql = text(
-        f"SELECT * FROM tasks WHERE title LIKE '%{q}%' OR description LIKE '%{q}%'"
+        f"SELECT * FROM tasks WHERE title LIKE "
+        f"'%{q}%' "
+        f"OR description LIKE '%{q}%'"
     )
     rows = db.execute(sql).mappings().all()
     return [Task(**r) for r in rows]
