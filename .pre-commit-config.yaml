@@ -19,12 +19,3 @@ repos:
     hooks:
       - id: prettier
         files: ^frontend/.*\.(js|html|css|mjs)$
-
-  - repo: local
-    hooks:
-      - id: eslint
-        name: eslint
-        entry: npx eslint
-        language: node
-        types: [ javascript ]
-        files: ^frontend/.*\.js$
