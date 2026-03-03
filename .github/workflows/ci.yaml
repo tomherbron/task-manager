@@ -32,17 +32,11 @@ jobs:
         with:
           node-version: "24.14.0"
 
-      - name: Install frontend dependencies
-        run: |
-          cd frontend
-          npm ci
+      - name: Install frontend tools
+        run: npm install -g prettier eslint
 
-      - name: Run Prettier (check only)
-        run: |
-          cd frontend
-          npx prettier --check .
+      - name: Run Prettier
+        run: prettier --check frontend/
 
       - name: Run ESLint
-        run: |
-          cd frontend
-          npx eslint .
+        run: eslint frontend/
