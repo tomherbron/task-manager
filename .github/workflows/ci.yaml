@@ -33,7 +33,7 @@ jobs:
           node-version: "24.14.0"
 
       - name: Install frontend tools
-        run: npm install -g prettier eslint eslint-config-prettier
+        run: npm install -g prettier eslint@8 eslint-config-prettier
 
       - name: Run Prettier
         run: prettier --check frontend/
