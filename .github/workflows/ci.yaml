@@ -24,17 +24,21 @@ jobs:
           pip install -r backend/requirements.txt
           pip install black
 
-      - name: Run Black (check only)
+      - name: Run Black
         run: black --check backend/
+
+      - name: Run Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: backend/Dockerfile
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "24.14.0"
+          node-version: "24"
 
       - name: Install frontend tools
-        run: |
-          npm install -g prettier
+        run: npm install -g prettier
 
       - name: Run Prettier
         run: prettier --check frontend/
