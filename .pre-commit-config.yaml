@@ -19,6 +19,8 @@ repos:
     hooks:
       - id: hadolint-docker
         files: ^backend/Dockerfile
+      - id: hadolint-docker
+        files: ^frontend/Dockerfile
 
   # JavaScript / frontend hooks
   - repo: https://github.com/pre-commit/mirrors-prettier

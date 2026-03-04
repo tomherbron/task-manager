@@ -27,10 +27,15 @@ jobs:
       - name: Run Black
         run: black --check backend/
 
-      - name: Run Hadolint
+      - name: Run Hadolint backend
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: backend/Dockerfile
+
+      - name: Run Hadolint frontend
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: frontend/Dockerfile
 
       - name: Setup Node
         uses: actions/setup-node@v3
